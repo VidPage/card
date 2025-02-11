@@ -1,3 +1,12 @@
+window.onload = function() {
+    // Ocultar el loader
+    document.getElementById('loader').style.display = 'none';
+
+    // Mostrar el contenido
+    document.getElementById('content').style.display = 'block';
+};
+
+
 setInterval(actualizarCuentaRegresiva, 1000);
 // Fecha objetivo: 28 de febrero a las 5:00 PM
 const fechaObjetivo = new Date("2025-02-28T17:00:00").getTime();
@@ -26,3 +35,5 @@ const intervalo = setInterval(actualizarCuentaRegresiva, 1000);
 
 // Ejecutar la función inmediatamente para evitar el primer segundo vacío
 actualizarCuentaRegresiva();
+
+///////////
