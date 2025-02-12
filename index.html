@@ -5,27 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación Baby Shower</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Loader que se muestra mientras la página carga -->
-    <div id="loader">
-        <div class="spinner"></div>
-    </div>
+    <div id="loader"></div>
     <div id="content">
-        <div class="container box">
+        <div class="container">
             <h1>¡Baby Shower!</h1>  
         </div>
         <img src="img/oso.webp" />
-        <div class="container">
-            <p>Te invitamos a celebrar la llegada de Melissa Cataleya</p>
-            <p>Fecha: 28 de febrero de 2025</p>
-            <!-- <h2>Tiempo restante hasta el 28 de febrero a las 5:00 PM:</h2> -->
-            <div id="countdown"></div>
+        <div class="container2">
+            <h2>¡Te invitamos a celebrar la llegada de Melissa Cataleya!</h2>
+            <p>Acompáñanos en este día tan especial lleno de amor y alegría.</p>
+            <span>📅 Fecha: Viernes 28 Febrero de 2025</span><br/>
+            <span>⏰ Hora: 5:00 PM</span><br/>
+            <span>📍 Lugar: 
+                <a href="https://www.google.com/maps?q=El+Mirador+Salón+Jardín" target="_blank">
+                    El Mirador Salón Jardín
+                </a>
+            </span><br/><br/>
+            <img src="img/baby.webp" style="width: 40%;" />
+            <h3>Cuenta regresiva para el Baby Shower de Melissa Cataleya</h3>
+            <div id="countdown"></div> <!-- Tiempo restante -->
+            <h3>Ubicación del Evento: El Mirador Salón Jardín</h3>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50758.90462879801!2d-98.40419068345999!3d18.989815979990876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfb66cbbacb58f%3A0x97bec142696bf887!2sEl%20Mirador%20Sal%C3%B3n%20Jard%C3%ADn!5e0!3m2!1ses-419!2smx!4v1739378115514!5m2!1ses-419!2smx" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <img style="animation: none; width: 40%; margin-top: 10px;" src="img/globo.jpg" />
+            <h3>¡Esperamos contar con tu presencia!</h3>
         </div>
         <div class="buttons">
-            <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Dirección+Aquí" target="_blank">Cómo llegar</a>
-            <a class="button" href="https://wa.me/5212211238501?text=Confirmo+mi+asistencia+al+Baby+Shower+de+Melissa+Cataleya" target="_blank">Confirmar asistencia</a>
+            <a class="button" href="https://www.google.com/maps?q=El+Mirador+Salón+Jardín" target="_blank">
+                <i class="fas fa-directions"></i> Cómo llegar
+            </a>
+            <a class="button" href="https://wa.me/5212211238501?text=Confirmo+mi+asistencia+al+Baby+Shower+de+Melissa+Cataleya" target="_blank">
+                <i class="fab fa-whatsapp"></i> Confirmar asistencia
+            </a>
         </div>
+        
     </div>
     
 

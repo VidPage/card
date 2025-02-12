@@ -1,14 +1,10 @@
 window.onload = function() {
-    // Ocultar el loader
     document.getElementById('loader').style.display = 'none';
-
-    // Mostrar el contenido
     document.getElementById('content').style.display = 'block';
 };
 
-
 setInterval(actualizarCuentaRegresiva, 1000);
-// Fecha objetivo: 28 de febrero a las 5:00 PM
+
 const fechaObjetivo = new Date("2025-02-28T17:00:00").getTime();
 
 function actualizarCuentaRegresiva() {
@@ -26,14 +22,8 @@ function actualizarCuentaRegresiva() {
     const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
 
-    document.getElementById("countdown").innerHTML = 
-        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    document.getElementById("countdown").innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
 }
 
-// Actualizar cada segundo
 const intervalo = setInterval(actualizarCuentaRegresiva, 1000);
-
-// Ejecutar la función inmediatamente para evitar el primer segundo vacío
 actualizarCuentaRegresiva();
-
-///////////
