@@ -1,6 +1,11 @@
 body {
     background-color: #ffe6f2;
-    color: #ff3385;
+    color: #ff3385;   
+}
+
+#content{
+    max-width: 600px;
+    margin: auto;
 }
 
 .container {
