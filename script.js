@@ -3,32 +3,25 @@ window.onload = function () {
     document.getElementById('loader').style.display = 'none';
     document.getElementById('content').style.display = 'block';
 
+    let playButton = document.getElementById("playButton");
     let audio = document.getElementById("miAudio");
-    let hasPlayed = false;  // Control para asegurar que el audio solo se reproduce una vez
 
     function activarAudio() {
-        if (!hasPlayed) {
-            let playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log("Audio reproduciéndose...");
-                }).catch(error => {
-                    console.log("Error al reproducir el audio:", error);
-                });
-            }
-
-            hasPlayed = true;
-            // Remover los listeners después de la primera interacción
-            document.removeEventListener("click", activarAudio);
-            document.removeEventListener("touchstart", activarAudio);
-            document.removeEventListener("scroll", activarAudio);
+        let playPromise = audio.play();  // Intenta reproducir el audio
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                console.log("Audio reproduciéndose...");
+            }).catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
         }
+        // Cambiar el ícono del botón a pausa después de la reproducción
+        playButton.innerHTML = '<i class="fa fa-pause"></i> Pausar Audio';
     }
 
-    // Comprobación continua: Interacción con clic, toque o scroll
-    document.addEventListener("click", activarAudio);       // Para hacer clic
-    document.addEventListener("touchstart", activarAudio);  // Para tocar la pantalla
-    document.addEventListener("scroll", activarAudio)
+    // Añadir el evento de clic al botón
+    playButton.addEventListener("click", activarAudio);
+
     // Inicializar cuenta regresiva
     actualizarCuentaRegresiva();
     setInterval(actualizarCuentaRegresiva, 1000);
