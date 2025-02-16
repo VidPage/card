@@ -6,10 +6,8 @@ window.onload = function () {
     let playButton = document.getElementById("playButton");
     let audio = document.getElementById("miAudio");
 
-    // Función para reproducir o pausar el audio
     function toggleAudio() {
         if (audio.paused) {
-            // Si el audio está pausado, reproducirlo
             let playPromise = audio.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
@@ -18,16 +16,12 @@ window.onload = function () {
                     console.log("Error al reproducir el audio:", error);
                 });
             }
-            // Cambiar el ícono del botón a pausa
             playButton.innerHTML = '<i class="fa fa-pause"></i> Pausar Audio';
         } else {
-            // Si el audio ya se está reproduciendo, pausarlo
             audio.pause();
-            // Cambiar el ícono del botón a play
             playButton.innerHTML = '<i class="fa fa-play"></i> Reproducir Audio';
         }
     }
-
     // Añadir el evento de clic al botón
     playButton.addEventListener("click", toggleAudio);
     // Inicializar cuenta regresiva
