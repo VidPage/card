@@ -32,6 +32,11 @@ p, span{
     font-weight: 600;
     color: black;
 }
+span{
+    display: block;
+    margin-bottom: 0px;
+    padding-bottom: 2px;
+}
 .link{
     text-decoration: none;
     color: #932ee6;
@@ -55,7 +60,7 @@ h1 {
 
 /* /// Imagen */
 img{
-    width: 60%;
+    width: 50%;
     display: block;
     margin: auto;
     animation: bounce 1s infinite;

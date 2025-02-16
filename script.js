@@ -1,6 +1,8 @@
 window.onload = function() {
     document.getElementById('loader').style.display = 'none';
     document.getElementById('content').style.display = 'block';
+    let audio = document.getElementById("IdAudio");
+    audio.volume = 0.6;
 };
 
 setInterval(actualizarCuentaRegresiva, 1000);
@@ -12,7 +14,7 @@ function actualizarCuentaRegresiva() {
     const tiempoRestante = fechaObjetivo - ahora;
 
     if (tiempoRestante <= 0) {
-        document.getElementById("countdown").innerHTML = "¡Tiempo terminado!";
+        document.getElementById("countdown").innerHTML = "¡La espera termino!";
         clearInterval(intervalo);
         return;
     }
