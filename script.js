@@ -1,10 +1,14 @@
 window.onload = function() {
     document.getElementById('loader').style.display = 'none';
     document.getElementById('content').style.display = 'block';
-    let audio = document.getElementById("IdAudio");
-    audio.volume = 0.6;
 };
 
+window.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("IdAudio");
+    audio.muted = false;
+    audio.volume = 0.6;
+    audio.play().catch(error => console.log("Autoplay bloqueado por el navegador:", error));
+});
 setInterval(actualizarCuentaRegresiva, 1000);
 
 const fechaObjetivo = new Date("2025-02-28T17:00:00").getTime();
