@@ -6,22 +6,30 @@ window.onload = function () {
     let playButton = document.getElementById("playButton");
     let audio = document.getElementById("miAudio");
 
-    function activarAudio() {
-        let playPromise = audio.play();  // Intenta reproducir el audio
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                console.log("Audio reproduciéndose...");
-            }).catch(error => {
-                console.log("Error al reproducir el audio:", error);
-            });
+    // Función para reproducir o pausar el audio
+    function toggleAudio() {
+        if (audio.paused) {
+            // Si el audio está pausado, reproducirlo
+            let playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log("Audio reproduciéndose...");
+                }).catch(error => {
+                    console.log("Error al reproducir el audio:", error);
+                });
+            }
+            // Cambiar el ícono del botón a pausa
+            playButton.innerHTML = '<i class="fa fa-pause"></i> Pausar Audio';
+        } else {
+            // Si el audio ya se está reproduciendo, pausarlo
+            audio.pause();
+            // Cambiar el ícono del botón a play
+            playButton.innerHTML = '<i class="fa fa-play"></i> Reproducir Audio';
         }
-        // Cambiar el ícono del botón a pausa después de la reproducción
-        playButton.innerHTML = '<i class="fa fa-pause"></i> Pausar Audio';
     }
 
     // Añadir el evento de clic al botón
-    playButton.addEventListener("click", activarAudio);
-
+    playButton.addEventListener("click", toggleAudio);
     // Inicializar cuenta regresiva
     actualizarCuentaRegresiva();
     setInterval(actualizarCuentaRegresiva, 1000);
