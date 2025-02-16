@@ -1,31 +1,34 @@
 window.onload = function () {
-    //mostrar el contenido
+    // Mostrar el contenido
     document.getElementById('loader').style.display = 'none';
     document.getElementById('content').style.display = 'block';
 
     let audio = document.getElementById("miAudio");
-    let hasPlayed = false; 
+    let hasPlayed = false;  // Control para asegurar que el audio solo se reproduce una vez
 
     function activarAudio() {
         if (!hasPlayed) {
-            audio.muted = false;
-            audio.play().then(() => {
-                console.log("Audio reproduciéndose...");
-            }).catch(error => {
-                console.log("Error al reproducir el audio:", error);
-            });
+            let playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log("Audio reproduciéndose...");
+                }).catch(error => {
+                    console.log("Error al reproducir el audio:", error);
+                });
+            }
 
             hasPlayed = true;
-            document.removeEventListener("scroll", activarAudio);
-            document.removeEventListener("touchstart", activarAudio);
+            // Remover los listeners después de la primera interacción
             document.removeEventListener("click", activarAudio);
+            document.removeEventListener("touchstart", activarAudio);
+            document.removeEventListener("scroll", activarAudio);
         }
     }
 
-    document.addEventListener("scroll", activarAudio);
-    document.addEventListener("touchstart", activarAudio);
-    document.addEventListener("click", activarAudio);
-
+    // Comprobación continua: Interacción con clic, toque o scroll
+    document.addEventListener("click", activarAudio);       // Para hacer clic
+    document.addEventListener("touchstart", activarAudio);  // Para tocar la pantalla
+    document.addEventListener("scroll", activarAudio)
     // Inicializar cuenta regresiva
     actualizarCuentaRegresiva();
     setInterval(actualizarCuentaRegresiva, 1000);
@@ -49,3 +52,4 @@ function actualizarCuentaRegresiva() {
 
     document.getElementById("countdown").innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
 }
+
